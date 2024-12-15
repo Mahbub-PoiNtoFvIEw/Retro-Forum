@@ -57,8 +57,8 @@
                     <h1 class="text-5xl font-bold text-[#FFFFFF]">Welcome to the <br> <span class="text-[#797DFC]">ReTro</span> Forum</h1>
                     <p class="text-[#FFFFFFCC]">Share your favorite opinion and win and <br> wp forum coffee mug!</p>
                     <div class="join">
-                        <input class="input input-bordered join-item" placeholder="Search here anything" />
-                        <button class="btn join-item rounded-full bg-[#797DFC] text-[#FFFFFF]">Search</button>
+                        <input id="search-text" class="input input-bordered join-item" placeholder="Search here anything" />
+                        <button onclick="handleSearchByCategory()" class="btn join-item rounded-full bg-[#797DFC] text-[#FFFFFF]">Search</button>
                     </div>
                 </div>
                 <div class="bg-[#FFFFFF] py-8 px-10 rounded-3xl my-4 text-[#12132DCC] ">
@@ -71,9 +71,17 @@
        </div>
     </header>
     <!-- header end -->
-
     <!-- main started -->
     <main class="mx-4 lg:mx-16 mt-16">
+        <!-- Loading spinner for all post start-->
+         <section>
+            <div id="allPosts-loading-bars" class="hidden text-center my-8">
+                <span class="loading loading-bars loading-xs"></span>
+                <span class="loading loading-bars loading-sm"></span>
+                <span class="loading loading-bars loading-md"></span>
+                <span class="loading loading-bars loading-lg"></span>
+            </div>
+         </section>
         <!-- discuss section start -->
          <section>
             <!-- discuss header section -->
@@ -84,84 +92,11 @@
             <div class="lg:grid lg:grid-cols-3 my-8 gap-4">
                 <div class="lg:col-span-2">
                     <!-- discuss card section start -->
-                    <div class="px-2 lg:px-8 py-6 flex bg-[#797DFC1A] rounded-3xl mt-4">
-                        <div class="h-12 w-12 bg-white rounded-xl relative mt-2">
-                            <span class="h-3 w-3 bg-red-500 absolute rounded-full -right-1 -top-1"></span>
-                        </div>
-                        <div class="ml-4">
-                            <div class="flex gap-2 lg:gap-4 text-[#12132DCC]">
-                                <p># <span>Music</span></p>
-                                <p>Author : <span>Author Name</span></p>
-                            </div>
-                            <div class="mt-2 text-[#12132D99]">
-                                <div class="pb-4 border-b-[.1rem] border-dashed border-[#12132D40]">
-                                    <h2 class="mb-4 text-[#12132D] font-bold text-xl">10 Kids Unaware of Their Halloween Costume</h2>
-                                    <p>It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative</p>
-                                </div>
-                                <div class="flex justify-between items-center py-4">
-                                    <div class="flex gap-2 lg:gap-4 justify-center items-center">
-                                        <p class="flex gap-2 justify-center items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
-                                          </svg>
-                                          <span>560</span></p>
-                                        <p class="flex gap-2 justify-center items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                          </svg>                                  
-                                          <span>1588</span></p>
-                                        <p class="flex gap-2 justify-center items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                          </svg>                                  
-                                          <span>5 min</span></p>
-                                    </div>
-                                    <div>
-                                        <i class="bg-[#10B981] p-2 rounded-full fa-solid fa-envelope-open text-white"></i>                                  
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-2 lg:px-8 py-6 flex bg-[#797DFC1A] rounded-3xl mt-4">
-                        <div class="h-12 w-12 bg-white rounded-xl relative mt-2">
-                            <span class="h-3 w-3 bg-red-500 absolute rounded-full -right-1 -top-1"></span>
-                        </div>
-                        <div class="ml-4">
-                            <div class="flex gap-2 lg:gap-4 text-[#12132DCC]">
-                                <p># <span>Music</span></p>
-                                <p>Author : <span>Author Name</span></p>
-                            </div>
-                            <div class="mt-2 text-[#12132D99]">
-                                <div class="pb-4 border-b-[.1rem] border-dashed border-[#12132D40]">
-                                    <h2 class="mb-4 text-[#12132D] font-bold text-xl">10 Kids Unaware of Their Halloween Costume</h2>
-                                    <p>It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative</p>
-                                </div>
-                                <div class="flex justify-between items-center py-4">
-                                    <div class="flex gap-2 lg:gap-4 justify-center items-center">
-                                        <p class="flex gap-2 justify-center items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
-                                          </svg>
-                                          <span>560</span></p>
-                                        <p class="flex gap-2 justify-center items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                          </svg>                                  
-                                          <span>1588</span></p>
-                                        <p class="flex gap-2 justify-center items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                          </svg>                                  
-                                          <span>5 min</span></p>
-                                    </div>
-                                    <div>
-                                        <i class="bg-[#10B981] p-2 rounded-full fa-solid fa-envelope-open text-white"></i>                                  
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                     <div id="post-card-container"></div>
                     <!-- discuss card section end -->
                 </div>
                 <!-- discuss aside section -->
-                <div class="bg-[#12132D0D] rounded-3xl py-4 mt-4">
+                <div class="bg-[#FFFFFF] rounded-3xl py-4 mt-4">
                     <!-- discuss aside header start -->
                     <div class="flex justify-between items-center mx-4 mb-4">
                         <div>
@@ -169,35 +104,12 @@
                         </div>
                         <div class="flex gap-2">
                             <i class="fa-solid fa-check-double text-[#3DCE09]"></i> 
-                            <p class="text-[#12132D99]">Mark as read <span>(</span> <span> 4 </span><span>)</span></p>
+                            <p class="text-[#12132D99]">Mark as read <span>(</span> <span id="read-count">  </span><span>)</span></p>
                         </div>
                     </div>
                     <!-- discuss aside header end -->
                      <!-- discuss aside card start -->
-                    <div class="flex justify-between items-center gap-4 bg-[#FFFFFF] rounded-xl p-4 mx-4 mb-4">
-                        <div class="text-[#12132D]">
-                            <p>10 Kids Unaware of Their Halloween Costume</p>
-                        </div>
-                        <div class="text-[#12132D99]">
-                            <p class="flex gap-2 justify-center items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                              </svg>                                  
-                              <span>1588</span></p>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-center gap-4 bg-[#FFFFFF] rounded-xl p-4 mx-4 mb-4">
-                        <div class="text-[#12132D]">
-                            <p>10 Kids Unaware of Their Halloween Costume</p>
-                        </div>
-                        <div class="text-[#12132D99]">
-                            <p class="flex gap-2 justify-center items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                              </svg>                                  
-                              <span>1588</span></p>
-                        </div>
-                    </div>
+                      <div id="aide-card-container"></div>
                     <!-- discuss aside end -->
                 </div>
             </div>
@@ -222,74 +134,21 @@
          <!-- forum section end -->
           <!-- latest posts section started -->
            <section>
+            <!-- Loading spinner for all post start-->
+            <div id="latestPosts-loading-bars" class="hidden text-center my-8">
+                <span class="loading loading-bars loading-xs"></span>
+                <span class="loading loading-bars loading-sm"></span>
+                <span class="loading loading-bars loading-md"></span>
+                <span class="loading loading-bars loading-lg"></span>
+            </div>
             <!-- posts header start -->
             <div class="text-center">
                 <h3 class="text-[#12132D] text-4xl font-bold">Latest Posts</h3>
                 <p class="text-[#12132D99] mt-8">Yes, you can run unit tests and view the results directly within the app. The <br> integrated testing features allow for a streamlined .</p>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-3 my-10 gap-4">
+            <div id="latest-post-card" class="grid grid-cols-1 lg:grid-cols-3 my-10 gap-4">
                 <!-- posts card 1 start -->
-                <div class="flex flex-col gap-4 border-solid border-[.1rem] border-[#12132D26] p-4 rounded-xl">
-                    <div class="h-32 rounded-xl bg-gray-300">
-
-                    </div>
-                    <div class="flex gap-2 items-center text-[#12132D99]">
-                        <i class="fa-regular fa-calendar-days"></i>
-                        <p class="flex gap-2"><span>29</span><span>January</span><span>2024</span></p>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-[#12132D]">What will a mars habitat force that impact in our daily life!!!</h3>
-                        <p class="text-[#12132D99]">Yes, you can run unit tests and view the results directly within the app. </p>
-                    </div>
-                    <div class="flex gap-3 items-center">
-                        <img class="w-10 h-10 rounded-full" src="images/pearbirds.jpg" alt="">
-                        <div>
-                            <h3 class="text-xl font-bold text-[#12132D]">Cameron Williamson</h3>
-                            <p class="text-[#12132D99]">Unknown</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- posts card 1 end -->
-                <div class="flex flex-col gap-4 border-solid border-[.1rem] border-[#12132D26] p-4 rounded-xl">
-                    <div class="h-32 rounded-xl bg-gray-300">
-
-                    </div>
-                    <div class="flex gap-2 items-center text-[#12132D99]">
-                        <i class="fa-regular fa-calendar-days"></i>
-                        <p class="flex gap-2"><span>29</span><span>January</span><span>2024</span></p>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-[#12132D]">What will a mars habitat force that impact in our daily life!!!</h3>
-                        <p class="text-[#12132D99]">Yes, you can run unit tests and view the results directly within the app. </p>
-                    </div>
-                    <div class="flex gap-3 items-center">
-                        <img class="w-10 h-10 rounded-full" src="images/pearbirds.jpg" alt="">
-                        <div>
-                            <h3 class="text-xl font-bold text-[#12132D]">Cameron Williamson</h3>
-                            <p class="text-[#12132D99]">Unknown</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-col gap-4 border-solid border-[.1rem] border-[#12132D26] p-4 rounded-xl">
-                    <div class="h-32 rounded-xl bg-gray-300">
-
-                    </div>
-                    <div class="flex gap-2 items-center text-[#12132D99]">
-                        <i class="fa-regular fa-calendar-days"></i>
-                        <p class="flex gap-2"><span>29</span><span>January</span><span>2024</span></p>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-[#12132D]">What will a mars habitat force that impact in our daily life!!!</h3>
-                        <p class="text-[#12132D99]">Yes, you can run unit tests and view the results directly within the app. </p>
-                    </div>
-                    <div class="flex gap-3 items-center">
-                        <img class="w-10 h-10 rounded-full" src="images/pearbirds.jpg" alt="">
-                        <div>
-                            <h3 class="text-xl font-bold text-[#12132D]">Cameron Williamson</h3>
-                            <p class="text-[#12132D99]">Unknown</p>
-                        </div>
-                    </div>
-                </div>
+                  
             </div>
            </section>
            <!-- latest posts section end -->
